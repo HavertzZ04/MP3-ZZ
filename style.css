@@ -33,15 +33,15 @@ body {
 #logo{
     border-radius: 100%;
     padding: 4.2rem;
+
 }
 
 #bar{
-    padding: 0 2rem !important;
-    margin-top: 0.5rem;
+    padding: 0 3rem !important;
 }
 
 .time{
-    padding: 0.5rem 2.2rem !important;
+    padding: 0.5rem 3.2rem !important;
     color: azure;
 }
 
@@ -52,16 +52,19 @@ body {
 
 .buttons{
     border-radius: 100%;
-    width: 2rem;
-    height: 2rem;
-    background-color: azure;
+    font-size: 2rem;
     border: none;
+    background-color: rgba(220, 220, 220, 0);
 }
 
 #play{
-    width: 2.6rem;
-    height: 2.6rem;
-    margin: 0 0.5rem;
+    position: relative;
+    top: 0.3rem;
+    font-size: 3rem;
+}
+
+#song{
+    display: none;
 }
 
   
