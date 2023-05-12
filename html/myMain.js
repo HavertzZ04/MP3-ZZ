@@ -1,13 +1,13 @@
 export default {
 
-    title: "Freedom",
+    title: "Supersonic",
     artist: "Skrillex",
-    logo: "images/logo.webp",
-    time: "00:00",
-    currentTime: "03:42",
-    previous: "<",
+    logo: "images/skrillex.jpg",
+    start: "00:00",
+    previous: "⏮️",
     play: "▶",
-    next: ">",
+    next: "⏭️",
+    song: "music/supersonic.mp3",
 
     show(){
         document.querySelector("body").insertAdjacentHTML("beforeend",         `
@@ -18,19 +18,20 @@ export default {
             <img src=${this.logo} alt="logo" id="logo"> 
             <div id="bar">  
                 <div class="progress col-12 ps-0 pe-0">
-                    <div class="progress-bar bg-warning ms-0" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-warning ms-0" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" id="progressBar"></div>
                 </div>
             </div>  
             <div class="container">
                 <div class="row">
-                    <div class="col-6 text-start time">${this.time}</div>
-                    <div class="col-6 text-end time">${this.currentTime}</div>
+                    <div class="col-6 text-start time" id="time">${this.start}</div>
+                    <div class="col-6 text-end time" id="songTime"></div>
                 </div>
-            </div> 
+            <div> 
             <div id="buttonsGroup" class="text-center">
                 <button class="buttons " id="previous">${this.previous}</button>
                 <button class="buttons" id="play">${this.play}</button>
                 <button class="buttons" id="next">${this.next}</button>
+                <audio id="song" src="${this.song}" controls></audio>
             </div>
         </div>
     </div>
