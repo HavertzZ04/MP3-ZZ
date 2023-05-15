@@ -70,7 +70,6 @@ body {
 }
 
 @media (max-width: 600px) {
-
     *{
         margin: 0 auto;
         padding: 0 auto;
@@ -79,9 +78,6 @@ body {
       width: 90%;
       display: block;
     }
-
-
-
 }
 
   
