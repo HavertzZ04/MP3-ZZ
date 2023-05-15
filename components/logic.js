@@ -1,9 +1,9 @@
 import data from "./data.js";
-export function logic() {
+let logic = function(){
 
-    let previous = document.querySelector("#previous"); //Pending to add a function
+    let previous = document.querySelector("#previous"); 
     let play = document.querySelector("#play");
-    let next = document.querySelector("#next"); //Pending to add a function
+    let next = document.querySelector("#next"); 
     let progressBar = document.querySelector("#progressBar")
     let time = document.querySelector("#time") //time of the moment where the song is playing
     let songTime = document.querySelector("#songTime");
@@ -116,3 +116,5 @@ export function logic() {
         playPrevious();
     });
 }
+
+export default logic;
