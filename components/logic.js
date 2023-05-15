@@ -49,7 +49,7 @@ export function logic() {
         playSong();
     }
 
-    function playSong(){
+    function playSong() {
         let currentSong = data[currentIndex];
         song.src = currentSong.song;
         songDuration = parseInt(currentSong.duration);
@@ -59,22 +59,25 @@ export function logic() {
         logo.src = currentSong.logo;
         isPlaying = true;
         play.innerHTML = "⏸️";
+      
+        // Reanudar desde la posición anterior
+        song.currentTime = currentTime;
         song.play();
-
-        interval = setInterval(function(){
-            if(currentTime >= songDuration){
-                clearInterval(interval);
-                isPlaying = false;
-                play.innerHTML = "⏸️";
-                currentTime = 0;
-                updateProgress();
-                playNext();
-            } else {
-                currentTime++;
-                updateProgress();
-            }
+      
+        interval = setInterval(function () {
+          if (currentTime >= songDuration) {
+            clearInterval(interval);
+            isPlaying = false;
+            play.innerHTML = "⏸️";
+            currentTime = 0;
+            updateProgress();
+            playNext();
+          } else {
+            currentTime++;
+            updateProgress();
+          }
         }, 1000);
-    };
+    }
 
     play.addEventListener("click", function(){
         if(isPlaying){
@@ -85,6 +88,20 @@ export function logic() {
         } else {
             playSong();
         }
+    });
+
+    song.addEventListener("timeupdate", function () {
+        currentTime = Math.floor(song.currentTime);
+        updateProgress();
+    });
+      
+    song.addEventListener("ended", function () {
+        clearInterval(interval);
+        isPlaying = false;
+        play.innerHTML = "▶";
+        currentTime = 0;
+        updateProgress();
+        playNext();
     });
 
     next.addEventListener("click", function(){
