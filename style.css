@@ -9,7 +9,7 @@ body {
     background-attachment: fixed;
     background-size: cover;}
 
-#main {
+#main, #tableContainer {
     background-color: rgba(0, 0, 0, 0.35);
     width: 30rem;
     margin: 5rem auto;
@@ -31,7 +31,8 @@ body {
 
 #logo{
     border-radius: 100%;
-    padding: 4.2rem;
+    padding: 3.3rem;
+    width: 99.99%;
 }
 
 #bar{
@@ -43,7 +44,7 @@ body {
 }
 
 .time{
-    padding: 0.5rem 3.2rem !important;
+    padding: 0.5rem 2.5rem !important;
     color: azure;
 }
 
@@ -68,6 +69,28 @@ body {
 #song{
     display: none;
 }
+
+#searchBar{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    border: none;
+    background-color: rgb(254, 244, 255);
+}
+
+#table{
+    color: aliceblue;
+}
+
+#tableBox{
+    margin-top: 2rem;
+}
+
+.selectSong{
+    cursor: pointer;
+}
+
+/*Tabla*/
 
 @media (max-width: 600px) {
     *{
