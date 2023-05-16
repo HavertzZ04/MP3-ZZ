@@ -3,7 +3,6 @@ import data from "./data.js";
 
 export default{
     show(){
-        console.log(data);
         let list = data.map(song =>{
 
             let duration = formatTime(song.duration);
