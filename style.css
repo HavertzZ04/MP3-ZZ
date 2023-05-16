@@ -43,6 +43,12 @@ body {
     background-color: #ffbb1be8;
 }
 
+#heart{
+    position: relative;
+    top: -1.5rem;
+    margin: 0 !important;
+}
+
 .time{
     padding: 0.5rem 2.5rem !important;
     color: azure;
@@ -66,9 +72,11 @@ body {
     font-size: 3rem;
 }
 
-#song{
+
+#song {
     display: none;
 }
+
 
 #searchBar{
     padding: 0.5rem;
