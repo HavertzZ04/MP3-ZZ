@@ -1,9 +1,11 @@
 import data from "./data.js";
+import table from "./table.js";
 let logic = function(){
 
     let previous = document.querySelector("#previous"); 
     let play = document.querySelector("#play");
-    let next = document.querySelector("#next"); 
+    let next = document.querySelector("#next");
+    let shuffle = document.querySelector("#shuffle");
     let progressBar = document.querySelector("#progressBar")
     let time = document.querySelector("#time") //time of the moment where the song is playing
     let songTime = document.querySelector("#songTime");
@@ -49,6 +51,16 @@ let logic = function(){
         playSong();
     }
 
+    function playShuffle(array){
+        for(let random, temp, position = array.length;
+            position;
+            random = Math.floor(Math.random() * position),
+            temp = array[--position],
+            array[position] = array[random],
+            array[random] = temp);
+        return array;
+    }    
+    
     function playSong() {
         let currentSong = data[currentIndex];
         song.src = currentSong.song;
@@ -115,6 +127,14 @@ let logic = function(){
         updateProgress();
         playPrevious();
     });
+
+    shuffle.addEventListener("click", function(){
+        playShuffle(data);
+        table.show(playShuffle(data));
+        currentTime = 0;
+        updateProgress();
+        playSong();
+    })
 }
 
 export default logic;
