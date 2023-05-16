@@ -5,13 +5,16 @@ export default {
     artist: data[0].artist,
     logo: data[0].logo,
     start: "00:00",
+    repeat: "🔁",
     previous: "⏮️",
     play: "▶",
     next: "⏭️",
+    shuffle: "🔀",
     song: data[0].song,
 
     show(){
-        document.querySelector("#main").insertAdjacentHTML("beforeend",         `
+        document.querySelector("#main").insertAdjacentHTML("beforeend",
+        `
             <div class="row">
                 <div class="col-12">
                     <h1 class="text-center" id="title">${this.title}</h1>
@@ -29,13 +32,16 @@ export default {
                         </div>
                     <div> 
                     <div id="buttonsGroup" class="text-center">
+                        <button class="buttons" id="repeat">${this.repeat}</button>
                         <button class="buttons" id="previous">${this.previous}</button>
                         <button class="buttons" id="play">${this.play}</button>
                         <button class="buttons" id="next">${this.next}</button>
-                        <audio id="song" src="${this.song}" controls></audio>
+                        <button class="buttons" id="shuffle">${this.shuffle}</button>
+                        <audio id="song" src="${this.song}" controls=""></audio>
                     </div>
                 </div>
-            </div>`
+            </div>
+        `
         );
     }
 }
