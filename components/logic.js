@@ -20,15 +20,16 @@ let logic = function(){
     let currentIndex = 0;
     let interval;
 
-    function updateProgress(){
-        let progress = (currentTime / songDuration) * 100;
+
+    function updateProgress() {
+        let progress = (song.currentTime / songDuration) * 100;
         progressBar.style.width = progress + "%";
-        time.textContent = formatTime(currentTime);
+        time.textContent = formatTime(song.currentTime);
     }
     
     function formatTime(time){
         let minutes = Math.floor(time / 60);
-        let seconds = time % 60;
+        let seconds = Math.floor(time % 60);
         return `${(minutes < 10 ? '0': '')}${minutes}:${(seconds < 10 ? '0' : '')}${seconds}`
     }
     songTime.innerHTML = formatTime(songDuration);
@@ -103,7 +104,6 @@ let logic = function(){
     });
 
     song.addEventListener("timeupdate", function () {
-        currentTime = Math.floor(song.currentTime);
         updateProgress();
     });
       
@@ -134,7 +134,7 @@ let logic = function(){
         currentTime = 0;
         updateProgress();
         playSong();
-    })
+    });
 }
 
 export default logic;
