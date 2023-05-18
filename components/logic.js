@@ -23,6 +23,7 @@ let logic = function(){
 
     function updateProgress() {
         let progress = (song.currentTime / songDuration) * 100;
+        console.log(currentTime);
         progressBar.style.width = progress + "%";
         time.textContent = formatTime(song.currentTime);
     }
@@ -33,6 +34,17 @@ let logic = function(){
         return `${(minutes < 10 ? '0': '')}${minutes}:${(seconds < 10 ? '0' : '')}${seconds}`
     }
     songTime.innerHTML = formatTime(songDuration);
+
+    function validate (){
+        if(isPlaying){
+            song.pause();
+            clearInterval(interval);
+            isPlaying = false;
+            play.innerHTML = "▶";
+        } else {
+            playSong();
+        }
+    }
     
     function playNext(){
         clearInterval(interval);
@@ -81,7 +93,6 @@ let logic = function(){
           if (currentTime >= songDuration) {
             clearInterval(interval);
             isPlaying = false;
-            play.innerHTML = "⏸️";
             currentTime = 0;
             updateProgress();
             playNext();
@@ -93,14 +104,7 @@ let logic = function(){
     }
 
     play.addEventListener("click", function(){
-        if(isPlaying){
-            song.pause();
-            clearInterval(interval);
-            isPlaying = false;
-            play.innerHTML = "▶";
-        } else {
-            playSong();
-        }
+        validate(); 
     });
 
     song.addEventListener("timeupdate", function () {
@@ -132,8 +136,10 @@ let logic = function(){
         playShuffle(data);
         table.show(playShuffle(data));
         currentTime = 0;
+        currentIndex = 0;
         updateProgress();
-        playSong();
+        // playSong();
+        validate();
     });
 }
 
