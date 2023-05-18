@@ -20,11 +20,14 @@ let logic = function(){
     let currentIndex = 0;
     let interval;
 
+    progressBar.addEventListener('change', (e)=>{
+        song.currentTime = progressBar.value;
+
+    })
+
 
     function updateProgress() {
-        let progress = (song.currentTime / songDuration) * 100;
-        console.log(currentTime);
-        progressBar.style.width = progress + "%";
+        progressBar.setAttribute("max", `${songDuration}`);
         time.textContent = formatTime(song.currentTime);
     }
     
@@ -44,6 +47,10 @@ let logic = function(){
         } else {
             playSong();
         }
+    }
+
+    function resetInput(){
+        progressBar.value = 0;
     }
     
     function playNext(){
@@ -75,6 +82,7 @@ let logic = function(){
     }    
     
     function playSong() {
+        resetInput();
         let currentSong = data[currentIndex];
         song.src = currentSong.song;
         songDuration = parseInt(currentSong.duration);
@@ -138,8 +146,8 @@ let logic = function(){
         currentTime = 0;
         currentIndex = 0;
         updateProgress();
-        // playSong();
         validate();
+        playSong();
     });
 }
 

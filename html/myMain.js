@@ -22,7 +22,7 @@ export default {
                     <img src=${this.logo} alt="logo" id="logo"> 
                     <div id="bar">  
                         <div class="progress col-12 ps-0 pe-0">
-                            <div class="progress-bar barCustom progress-bar-striped ms-0" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" id="progressBar"></div>
+                            <input class="progress-bar" type="range" max="0" value="0"  id="progressBar">
                         </div>
                     </div>  
                     <div class="container">

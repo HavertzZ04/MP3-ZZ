@@ -25,6 +25,10 @@ body {
     margin-top: 3rem;
 }
 
+#progressBar{
+    width: 100% !important;;
+}
+
 #artist{
     color: azure;;
 }
