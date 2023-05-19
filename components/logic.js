@@ -20,26 +20,30 @@ let logic = function(){
     let currentIndex = 0;
     let interval;
 
+    document.addEventListener('click', (e)=>{
+        if(e.target.classList.contains('progress-bar')){
+            song.currentTime = progressBar.value;
+        }
+    })
+
     progressBar.addEventListener('change', (e)=>{
         song.currentTime = progressBar.value;
-
-    })
+    });
 
 
     function updateProgress() {
         progressBar.setAttribute("max", `${songDuration}`);
-        progressBar.value = song.currentTime;
         time.textContent = formatTime(song.currentTime);
-    }
+    };
     
     function formatTime(time){
         let minutes = Math.floor(time / 60);
         let seconds = Math.floor(time % 60);
         return `${(minutes < 10 ? '0': '')}${minutes}:${(seconds < 10 ? '0' : '')}${seconds}`
-    }
+    };
     songTime.innerHTML = formatTime(songDuration);
 
-    function validate (){
+    function validate(){
         if(isPlaying){
             song.pause();
             clearInterval(interval);
@@ -47,30 +51,32 @@ let logic = function(){
             play.innerHTML = "▶";
         } else {
             playSong();
-        }
-    }
+        };
+    };
 
     function resetInput(){
         progressBar.value = 0;
-    }
+    };
     
     function playNext(){
+        resetInput();
         clearInterval(interval);
         currentIndex++;
         if(currentIndex >= data.length){
             currentIndex = 0;
-        }
+        };
         playSong();
-    }
+    };
 
     function playPrevious(){
+        resetInput();
         clearInterval(interval);
         currentIndex--;
         if(currentIndex < 0){
             currentIndex = data.length - 1;
-        }
+        };
         playSong();
-    }
+    };
 
     function playShuffle(array){
         for(let random, temp, position = array.length;
@@ -80,10 +86,9 @@ let logic = function(){
             array[position] = array[random],
             array[random] = temp);
         return array;
-    }    
+    };   
     
     function playSong() {
-        resetInput();
         let currentSong = data[currentIndex];
         song.src = currentSong.song;
         songDuration = parseInt(currentSong.duration);
@@ -93,8 +98,8 @@ let logic = function(){
         logo.src = currentSong.logo;
         isPlaying = true;
         play.innerHTML = "⏸️";
-      
-        // Reanudar desde la posición anterior
+
+        (progressBar.value > 0) ? currentTime = progressBar.value : currentTime = 0;
         song.currentTime = currentTime;
         song.play();
       
