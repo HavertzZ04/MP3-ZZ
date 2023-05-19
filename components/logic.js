@@ -33,6 +33,7 @@ let logic = function(){
 
     function updateProgress() {
         progressBar.setAttribute("max", `${songDuration}`);
+        progressBar.value = song.currentTime;
         time.textContent = formatTime(song.currentTime);
     };
     
