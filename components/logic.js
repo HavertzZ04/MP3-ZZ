@@ -147,6 +147,7 @@ let logic = function(){
     });
 
     shuffle.addEventListener("click", function(){
+        resetInput();
         playShuffle(data);
         table.show(playShuffle(data));
         currentTime = 0;
