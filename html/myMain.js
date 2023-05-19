@@ -21,8 +21,8 @@ export default {
                     <h4 class="text-center" id="artist">${this.artist}</h4>
                     <img src=${this.logo} alt="logo" id="logo"> 
                     <div id="bar">  
-                        <div class="progress col-12 ps-0 pe-0">
-                            <input class="progress-bar" type="range" max="0" value="0"  id="progressBar">
+                        <div class="progress col-12 ps-0 pe-0 colorBar">
+                            <input type="range" value="0"  id="progressBar" class="">
                         </div>
                     </div>  
                     <div class="container">
@@ -44,4 +44,4 @@ export default {
         `
         );
     }
-}
+};

@@ -25,10 +25,16 @@ body {
     margin-top: 3rem;
 }
 
-#progressBar{
-    width: 100% !important;
-
+.colorBar{
+    background-color: rgba(27, 187, 69, 0);
 }
+
+#progressBar{
+    width: 95% !important;
+    position: relative;
+    left: 2.5%;
+}
+
 
 #artist{
     color: azure;;
@@ -55,7 +61,7 @@ body {
 }
 
 .time{
-    padding: 0.5rem 2.5rem !important;
+    padding: 0.5rem 3rem !important;
     color: azure;
 }
 
@@ -109,10 +115,47 @@ body {
     *{
         margin: 0 auto;
         padding: 0 auto;
+        
     }
+
+
     #main {
-      width: 80%;
+      width: 100%;
+      margin: 0;
       display: block;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      background-color: #000000b1;
+    }
+
+    #tableContainer{
+        box-shadow: 0 -1px 5rem 10px #020100b3;
+        height:100%;
+        width: 100%;
+        padding-bottom: 2rem !important;
+        margin: 0;
+        border-radius: 0;
+        background: rgba(205, 101, 15, 0.679);
+    }
+
+    .buttons{
+        font-size: 1.6rem;
+    }
+
+    #buttonsGroup{
+        padding: 0 !important;
+        margin: 0 0 3rem 0;
+        text-align: center;
+    }
+
+    #play{
+        font-size: 2.1rem;
+        position: relative;
+        top:  2.9px;
+    }
+    #searchBar{
+        margin: 3rem 0 0 1rem;
     }
 }
 
