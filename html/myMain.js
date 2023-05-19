@@ -5,7 +5,7 @@ export default {
     artist: data[0].artist,
     logo: data[0].logo,
     start: "00:00",
-    repeat: "🔁",
+    like: "🧡",
     previous: "⏮️",
     play: "▶",
     next: "⏭️",
@@ -22,7 +22,7 @@ export default {
                     <img src=${this.logo} alt="logo" id="logo"> 
                     <div id="bar">  
                         <div class="progress col-12 ps-0 pe-0 colorBar">
-                            <input type="range" value="0"  id="progressBar" class="">
+                            <input class="progress-bar" max="0" type="range" value="0"  id="progressBar">
                         </div>
                     </div>  
                     <div class="container">
@@ -32,7 +32,7 @@ export default {
                         </div>
                     <div> 
                     <div id="buttonsGroup" class="text-center">
-                        <button class="buttons" id="repeat">${this.repeat}</button>
+                        <button class="buttons" id="repeat">${this.like}</button>
                         <button class="buttons" id="previous">${this.previous}</button>
                         <button class="buttons" id="play">${this.play}</button>
                         <button class="buttons" id="next">${this.next}</button>
